@@ -1,24 +1,27 @@
 1. HTML是什么，HTML5是什么
  HTML指的是超文本标记语言(不是编程语言！）使用标记标签来描述网页
  HTML5时最新的HTML标准，拥有新的语义、图形和多媒体元素、跨平台。
+ HTML5最主要的目的为了提高语义化，改善开发者和终端用户对万维网的体验
  
 2. HTML元素标签、属性都是什么概念？
+不同的标签应用于不同的逻辑场景，来实现不同的页面结构
 HTML标签可以拥有属性，如name="value"
 
 3. 文档类型是什么概念，起什么作用？
 <!DOCTYPE>声明HTML是由什么版本编写的
-
+常用文件声明<!DOCTYPE html>
 4. meta标签都用来做什么的？
 <meta>元素可提供有关页面的元信息，比如针对搜索引擎和更新频度描述和关键词，如每5s刷新一次 。
 
 5.Web语义化是什么，是为了解决什么问题
 让机器可以读懂内容
+语义化就是让web页面有良好的结构和含义，看起来像人类的自然语言一样，通俗易懂。这样的话对于开发者和终端用户而言都大大提高了体验。每个人开发的不同web页面有一个同意的规范，彼此之间也没有那么晦涩难懂。
 
 6.链接是什么概念，对应什么标签？
-点击进入链接所指地方，link
+点击进入链接所指地方，<a>
 
 7.常用标签都有哪些，都适合用在什么场景
-div
+div 块级元素，定义各种不同区块来划分整个页面
 h1
 head 头部 定义网页名称
 body 定义网页内部
@@ -31,6 +34,17 @@ html 起始结束
 <form>是定义html表单
 <input>定义按钮、常规文本输入等
 <fieldset>组合表单数据
+Tags      	Description	        Attributes	                               
+<form>	    定义表单	            action, autocomplete, method, etc.	        
+<input>	   定义输入域	          autofocus, type, min, etc.	                
+<textarea>	定义textarea	        autofocus, cols, form, required, etc.	    
+<label>	   定义表单控件的名称	   for, form
+<fieldset>	定义fieldset	       disabled, form , name	
+<legend>	  为以下元素定义标题：<fieldset>、<figure>、<details>	支持html5的事件和全局属性	
+<select>	  标签创建下拉列表	     data, form , name, 'multiple', etc.	
+<optgroup>	定义选项组	          lable, disabled
+<option>	  定义下拉列表中的选项	 lable, disabled， selected, value
+<button>  	定义按钮	           name, disabled， autofocus, etc.
 
 9.ol, ul, li, dl, dd, dt等这些标签都适合用在什么地方，举个例子
 <ul>定义无序列表
@@ -49,3 +63,13 @@ html 起始结束
    <dd>以视觉方式显示信息的装置 ... ...</dd>
 </dl>
 
+
+
+
+
+本次课程作业为编写一份自己的简历
+给的参考简历见http://zhangwenli.com/cv/cn.html#
+猜测是由html5编写的？此份简历对应的代码见https://github.com/Ovilia/cv
+
+我的简历开始主要由table组成的，边框由div组成。
+之后学习了列表部分，觉得主要课程那部分可以不用table，用列表更为合适，所以将其改为了列表。

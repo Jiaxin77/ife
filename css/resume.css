@@ -1,4 +1,4 @@
-  div{
+div{
   width:700px;
   height:150px;
   margin: auto;
@@ -12,7 +12,9 @@
 h2{
   font-size:32px;
   font-weight:500;
-  text-shadow: 4px 4px 5px gray;        
+  text-shadow: 4px 4px 5px gray; 
+  background-color:gray;
+  background-position:center;
 }
 p{
   color:red;
@@ -27,3 +29,11 @@ body{
   line-height:1.2;
 }
 
+li{
+  list-style-type:square;
+}
+
+a:link{color:#FF0000;}
+a:visited{color:#00FF00;}
+a:hover{color:#FF00FF;}
+a:active{color:#0000FF;}

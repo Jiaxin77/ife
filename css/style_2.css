@@ -1,0 +1,38 @@
+body{
+	font-family: SimHei,sans-serif;
+	line-height: 1.5;
+	font-weight: 500;
+}
+h2{
+	font-size: 30px;
+}
+h3{
+	font-size: 25px;
+
+}
+div{
+	font-weight: 500;
+	font-size: 17px;
+}
+.resume{
+	background: white;
+	width: 1000px;
+	height: 1000px;
+
+}
+.title1{
+	background: LightSkyBlue;
+	width: 200px;
+	height: 1000px;
+	padding: 20px;
+	display: inline-block;
+	float: left;
+}
+.inform{
+	background: white;
+	width: 600px;
+	height: 1000px;
+	padding: 20px;
+	display: inline-block;
+	float: right;
+}

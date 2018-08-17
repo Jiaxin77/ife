@@ -1,0 +1,79 @@
+body{
+	font-family: SimHei,sans-serif;
+	line-height: 1.5;
+	font-weight: 500;
+}
+h2{
+	font-size: 20px;
+}
+h3{
+	font-size:15px;
+
+}
+
+div{
+	font-weight: 500;
+	font-size: 15px;
+}
+
+
+.resume{
+	background: white;
+	width: 1000px;
+	height: 1000px;
+
+}
+.title1{
+	background: grey;
+	width: 1000px;
+	height: 50px;
+	padding: 10px auto;
+	display: inline-block;
+	color: white;
+	align-content: center;
+
+}
+.basic,.contact{
+	background: white;
+	width: 1000px;
+	height: 100px;
+	padding: 10px auto;
+	display: inline-block;
+	border-bottom:2px solid LightGrey;
+
+}
+.ability,.education,.experience
+{
+	background: white;
+	width: 1000px;
+	height: 105 px;
+	padding: 10px auto;
+	display: inline-block;
+	border-bottom:2px solid LightGrey;
+
+}
+.basicTitle,.contactTitle,.abilityTitle,.educationTitle,.experienceTitle{
+	background: LightGrey;
+	display: inline-block;
+	float: left;
+	width: 100px;
+	height: 100px;
+	padding: 10px auto;
+	text-align: center;
+	line-height: 60px;
+	
+
+}
+
+.basicInfo,.contactInfo{
+	padding: 5px auto ;
+	display: inline-block;
+	width: 700px;
+	height: 100px;
+	}
+.abilityInfo,.eduInfo,.expInfo{
+	padding: 5px auto ;
+	display: inline-block;
+	width: 700px;
+	height: 105px;
+}

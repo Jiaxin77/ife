@@ -1,0 +1,22 @@
+/*采用flex，实现左侧30%，右侧70%*/
+body{
+	min-width: 550px;
+
+}
+#container{
+	display: flex;
+}
+#container.column{
+	
+	flex-flow: row wrap;	
+	min-height: 300px;
+}
+#left{
+	flex:3 10px;
+	background-color: blue;
+}
+#right{
+	flex: 7 10px;
+	background-color: green;
+}
+

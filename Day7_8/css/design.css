@@ -1,0 +1,170 @@
+
+
+html{
+	min-width: 1000px;
+
+	overflow-x:hidden; 
+}
+
+body{
+	display: block;
+	min-width: 1000px;
+	margin:0px;
+}
+
+#header{
+	width: 100%;
+	background-color: #404040;
+	position: fixed;
+	z-index: 10;
+}
+
+#headinfo{
+	width: 100%;
+	height: 50px;
+	color: white;
+}
+#logo{
+	/*position: relative;*/
+	position: absolute;
+	width: 40%;
+	left: 5%;
+	top: 20px;
+
+}
+#navi{
+	position: absolute;
+	width: 20%;
+	
+	left: 80%;
+	top: 20px;
+
+}
+#navi a:link{
+	color: #B2FF99;
+}
+#navi a:visited{
+	color: #FFFF85;
+}
+#navi a:hover{
+	color: #FF704D;
+}
+#navi a:active{
+	color: #FF704D;
+}
+
+#banner{
+
+	width: 100%;
+	height: 400px;
+}
+#image{
+	top: 50px;
+	width: 100%;
+	height: 350px;
+	position:relative;
+}
+#banner  img{
+	
+	width: 100%;
+	height: 350px;
+
+}
+
+#img_nav{
+	position: relative;
+	bottom: 0px;
+	left: 90%;
+	width: 10%;
+	display: flex;
+	flex-flow: row;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+
+.non_choose{
+	width: 10px;
+	height: 15px;
+	background-color:white;
+	opacity:0.3;
+	border: 2px solid;
+	text-align: center;
+	margin:0px;
+
+}
+.choose{
+	width: 10px;
+	height: 20px;
+	background-color: white;
+	opacity: 0.7;
+	border: 2px solid;
+	text-align: center;
+	margin:0px;
+
+}
+
+#inform .active{
+	z-index: 2;
+}
+
+
+	#inform ul{
+        padding-left: 0;
+        margin-top: 0; 
+      }
+      #inform li{
+        float: left;
+        list-style-type: none;
+        width: 150px;
+        border: 1px solid grey;
+        border-top-left-radius:5em;
+		border-top-right-radius:5em;
+		text-align: center;;
+      }
+    
+  
+    #inform li .active{
+    	color: black;
+    }
+    #infrom li .active{
+    	color: grey;
+    }
+      #inform li a{
+        display: inline-block;
+        text-decoration: none;
+        width: 100%;
+      }
+
+
+
+
+#inform .content{
+	padding: 80px;
+	justify-content: space-around;
+	flex: 1 80px;
+	min-height: 100px;
+	border: 1px solid grey;
+	text-align: center;
+}
+
+  .row{
+  	display: flex;
+  	width: 100%;
+
+  }
+
+#inform{
+	width: 960px;
+	margin: 0 auto;
+
+}
+
+#footer{
+	width: 100%;
+	background-color: lightgrey;
+	text-align: center;
+	height: 30px;
+}
+

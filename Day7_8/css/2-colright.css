@@ -1,0 +1,37 @@
+/*使用float，实现两栏布局，右侧固定宽度，左侧根据浏览器自适应*/
+body{
+	
+	color: white;
+
+}
+
+
+#container{
+	background-color: grey;
+	padding-right: 200px;
+	
+
+}
+#left{
+	width: 100%;
+	
+	float: left;
+	
+	background-color: blue;
+}
+
+#right{
+	width: 200px;
+	float: right;
+	
+	margin-right: -200px;
+	
+	background-color: green;
+}
+
+#container.column{
+	position:relative;
+	float: left;
+	text-align: justify;
+	min-height: 300px;
+}

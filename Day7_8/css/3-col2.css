@@ -1,0 +1,47 @@
+/*采用float，实现三栏布局，左侧中间固定，右侧自适应*/
+body{
+		min-width: 550px;
+	}
+
+	#container{
+		padding-left: 200px;
+		padding-right: 150px;
+		min-height: 300px;
+	}
+	#container .column{
+		position:relative;
+		float:left;
+		min-height: 300px;
+		text-align: justify;
+		
+	}
+
+	#center{
+		
+		width: 200px;
+		margin-left: : 200px;
+		/*margin-left: -100%;*/
+	}
+	#left{
+		width: 200px;
+		margin-left: -200px;
+		right:200px;
+
+	}
+	#right{
+		margin-right: -100%;
+		width: 100%;
+		
+		
+		
+	}
+
+	#left{
+		background-color: blue;
+	}
+	#right{
+		background-color: green;
+	}
+	#center{
+		background-color: #66ffff;
+	}

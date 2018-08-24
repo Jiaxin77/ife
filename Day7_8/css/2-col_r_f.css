@@ -1,0 +1,24 @@
+/*采用flex,实现右侧固定，左侧浏览器宽度*/
+body{
+	min-width: 550px;
+
+}
+#container{
+	display: flex;
+}
+#container.column{
+	
+	flex-flow: row wrap;	
+	min-height: 300px;
+}
+#left{
+	flex: 10 100px;
+	background-color: blue;
+}
+#right{
+	width: 200px;
+	
+	background-color: green;
+}
+
+*/

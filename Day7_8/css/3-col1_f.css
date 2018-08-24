@@ -1,0 +1,46 @@
+/*采用flex，三栏，左右固定，中间随机*/
+
+body{
+		min-width: 550px;
+	}
+
+	#container{
+		display: flex;
+	}
+	#container .column{
+		flex-flow: row wrap;
+		min-height: 300px; 
+		
+	}
+
+	
+	#left{
+		width: 200px;
+		
+		order: 1;
+
+	}
+	#center{
+		
+		flex: 10 200px;
+		order: 2;
+		/*margin-left: -100%;*/
+	}
+
+	#right{
+		width: 200px;
+		order: 3;
+		
+		
+		
+	}
+
+	#left{
+		background-color: blue;
+	}
+	#right{
+		background-color: green;
+	}
+	#center{
+		background-color: #66ffff;
+	}

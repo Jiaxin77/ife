@@ -1,0 +1,42 @@
+/*采用float,实现三栏，左侧右侧固定，中间自适应*/
+body{
+		min-width: 550px;
+	}
+
+	#container{
+		padding-left: 200px;
+		padding-right: 150px;
+		
+	}
+	#container .column{
+		position:relative;
+		float:left;
+		min-height: 300px;
+		
+	}
+
+	#center{
+		
+		width: 100%;
+	}
+	#left{
+		width: 200px;
+		margin-left: -100%;
+		right:200px;
+	}
+	#right{
+		width: 150px;
+	
+		margin-right: -150px;
+		
+	}
+
+	#left{
+		background-color: blue;
+	}
+	#right{
+		background-color: green;
+	}
+	#center{
+		background-color: #66ffff;
+	}

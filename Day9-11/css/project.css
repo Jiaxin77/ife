@@ -1,0 +1,443 @@
+/**{
+	margin: 0;
+	padding: 0;
+}*/
+body{
+	/*background-image: url("img/2_bg1.png");*/
+	font-family: Montserrat,Myriad;
+	/*background-size: cover;*/
+	background-color: white;
+}
+.pg1{
+	background-image: url("img/1_bg.png");
+	width: 100%;
+	height: 600px;
+	/*z-index: -2;*/
+	position: relative;
+}
+.pg1 #imgon{
+
+	position: absolute;
+	width: 100%;
+	height: 600px;
+	z-index: 1;
+	opacity: 0.7;
+	background-image: url("img/1_bg2.png");
+}
+.pg1 .text{
+	position: relative;
+	top:100px;
+	text-align: center;
+	margin: 0 auto;
+	z-index: 2;
+}
+.pg1 .title{
+	position: relative;
+	width: 60%;
+	
+	text-align: center;
+	color: white;
+
+	margin: 0 auto;
+
+}
+h1{
+	font-weight: 500;
+}
+.pg1 .intro{
+	position: relative;
+	width: 60%;
+	margin: 0 auto;
+	font-weight: 100;
+	opacity: 0.8;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	z-index: 2;
+
+}
+
+.pg1 .account{
+	position: relative;
+	top:200px;
+	border: 1px solid grey;
+	width: 70%;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	color: white;
+	z-index: 2;
+
+}
+.pg1 .account p{
+	opacity: 0.7;
+	font-size: 10px;
+	font-weight: 100;
+	text-transform: uppercase;
+}
+h4{
+	font-weight: 300;
+}
+.pg1 .input1{
+	display: flex;
+	flex-flow: row wrap;
+
+	justify-content: space-around;
+	
+	}
+
+.input1 #email {
+	width: 200px;
+	height: 20px;
+	background: transparent;
+	border: 1px solid #FFFFFF;
+
+}
+.input1 #password{
+	width: 200px;
+	height: 20px;
+	background: transparent;
+	border: 1px solid #FFFFFF;
+
+}
+.pg1 .input1 #sign_up{
+	width: 70px;
+	background-color: white;
+	text-align: center;
+}
+
+.pg2{
+	margin-top:50px; 
+	width: 100%;
+	height: 600px;
+	position: relative;
+}
+
+.pg2 .title2{
+	width: 100%;
+	text-align: center;
+	margin-top:100px; 
+	margin-bottom: 0px;
+	height: 200px;
+
+}
+
+.pg2 .intro2{
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+	height: 300px;
+	margin: 30px;
+	justify-content: space-around;
+
+}
+
+.pg2 .intro2 .pic4{
+	width: 400px;
+	height: 70px;
+	margin: 30px;
+	padding: 10px;
+	text-align: left;
+}
+.pg2 .intro2 .pic4 img{
+	float: left;
+	height: 50px;
+	vertical-align: middle;
+	top:10px;
+	margin: 20px;
+}
+
+.pg3{
+	background-image: url("img/3_bg.png") ;
+	width: 100%;
+	height: 600px;
+	color: white;
+	position: relative;
+}
+
+
+.pg3 .right3{
+
+	float: left;
+	width: 30%;
+	
+	margin-top: 15%;
+	margin-left:10%;
+	margin-right: 10%;  
+	
+}
+
+.pg3 h2{
+	font-weight: 400;
+}
+.pg3 p{
+	font-weight: 200;
+}
+.pg3 .right3 .button3{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+
+.pg3 #check{
+	background-color: white;
+	color: black;
+	width: 175px;
+	height: 30px;
+	border-radius: 3em;
+	font-size: 2px;
+
+}
+
+.pg3 #try{
+	background: transparent;
+	color: white;
+	width: 175px;
+	height: 30px;
+	border-radius: 3em;
+	font-size: 2px;
+}
+
+.pg4{
+	width: 100%;
+	height: 500px;
+	text-align: center;
+}
+
+.pg4 h2{
+	font-weight: 300;
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+}
+.pg4 p{
+	font-weight: 200;
+}
+
+.pg4 .pic3{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+.pg4 .pic{
+	width: 200px;
+}
+
+.pg5{
+	width: 100%;
+	height: 600px;
+	background-image: url("img/2_bg1.png");
+	font-family: Montserrat,Myriad;
+	background-size: cover;
+	margin-top: 100px;
+	text-align: left;
+}
+.pg5 h5{
+	font-size: 15px;
+	font-weight: 500;
+}
+.pg5 p{
+	font-weight: 200;
+}
+.pg5 .text{
+	width: 300px;
+	height: 200px;
+
+}
+
+.pg5 img{
+	width:400px;
+	height: 250px; 
+}
+.pg5 .part1{
+	display: flex;
+	justify-content: space-around;
+	margin: 20px;
+
+}
+.pg5 .part1 img{
+	float:left;
+}
+
+
+.pg5 .part2{
+	display: flex;
+	margin: 20px;
+	justify-content: space-around;
+}
+
+.pg5 .part2 img{
+	float: right;
+}
+
+.pg6 {
+	width: 100%;
+	height: 800px;
+	text-align: center;
+}
+
+.pg6 .title6 {
+	margin: 30px;
+}
+.pg6 .title6 h3{
+	font-size: 30px;
+	font-weight: 200;
+
+}
+.pg6 .title6 p{
+	font-weight: 100;
+}
+.pg6 .people{
+	margin-left: 100px;
+	margin-right: 100px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+
+
+.pg6 .person{
+	width: 400px;
+	height: 350px;
+	margin: 10px;
+	position: relative;
+	
+}
+.pg6 .person .bot img{
+	width: 400px;
+	height: 250px;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	z-index: 0;
+}
+
+.pg6 .person .info{
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 250px;
+	
+	padding: 10px;
+	position: relative;
+	
+	background-color: black;
+	opacity: 0.7;
+	color: white;
+	z-index: 1;
+	display : none;
+}
+
+.pg6 .person:hover .info{
+	
+	display: block;
+}
+
+.pg6 .person .info .little{
+	position: static;
+	display: flex;
+	height: 20px;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: stretch;
+}
+.pg6 .person .info .little img{
+	margin: 10px;
+	width: 20px;
+	height: 20px;
+	z-index: 3;
+
+}
+
+
+.pg7{
+	width: 100%;
+	height: 500px;
+	margin: 20px;
+	
+	
+}
+
+.pg7 .left7{
+	margin-left: 50px; 
+	float:left;
+	border: 1px solid lightgrey;
+	width: 350px;
+	height: 400px;
+	vertical-align: middle;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.pg7 .left7 #message7{
+	height: 100px;
+}
+
+.pg7 .left7 input{
+	width: 300px;
+	margin: 5px;
+	min-height: 30px;
+}
+.pg7 .left7 #send7{
+	background-color: black;
+	color: white;
+}
+
+.pg7 .right7{
+	padding-right: 50px; 
+	float: right;
+	text-align: left;
+	height: 500px;
+	width: 40%;
+	vertical-align: middle;
+	padding: 0 auto;
+}
+
+.pg7 .right7 .contact{
+	margin-top: 50px; 
+}
+.pg7 .right7 .contact img{
+	float: left;
+	width: 20px;
+	height: 25px;
+	margin-right: 10px; 
+}
+
+.bottom8{
+
+	background-color: black;
+	width: 100%;
+	height: 400px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	padding-top: 20px;
+}
+
+.bottom8 h5{
+	color: white;
+}
+.bottom8 a{
+	color: grey;
+	text-decoration:none;
+	margin: 5px;
+}
+.bottom8 p{
+	color: grey;
+}
+.bottom8 .col{
+	width: 200px;
+	height: 300px;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-around;
+}
+
+.bottom8 .pic6 img{
+	opacity: 0.5;
+	
+}

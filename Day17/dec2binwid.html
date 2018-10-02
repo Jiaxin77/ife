@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+    <button id="trans-btn" onclick="buttonFunction()">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+
+function dec2bin(decNumber) {
+    // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+    // 这里是上一个任务的实现
+
+        var binNumber=0;
+    var project=1;
+
+    if(decNumber<0)
+    {
+        //alert("必须为非负整数！");
+        return -1;
+    }
+    else{
+        while(decNumber>=1)
+        {
+        //binNumber=binNumber*10
+            
+            binNumber=(decNumber%2)*project+binNumber;
+
+        //  console.log("BINNUMBER"+binNumber);
+            project=project*10;
+        //  console.log("PROJECT:"+project);        
+            decNumber=parseInt(decNumber/2);
+        //  console.log("DECNUMBER"+decNumber);
+        }
+        //console.log(binNumber);
+        //document.getElementById('result').html(binNumber);
+        return binNumber;
+    }
+
+}
+
+function buttonFunction(){
+
+    var decNum=document.getElementById('dec-number').value;
+    var bit_wid=document.getElementById('bin-bit').value;
+    var binNum=dec2bin(decNum);
+    var numStr=new String;
+    if(binNum==-1)
+    {
+        alert("必须为非负整数！")
+    }
+    else{
+        console.log(binNum);
+      
+        numStr=binNum.toString();
+        console.log("length:"+numStr.length);
+        if(numStr.length>bit_wid)
+        {
+            console.log("越界了！");
+            document.getElementById("result").innerHTML=binNum;
+        }
+        else{
+
+        while(numStr.length<bit_wid){
+            numStr="0"+numStr;
+        }
+        document.getElementById("result").innerHTML=numStr;
+        }
+
+        
+    }
+}
+// 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+// 新的需求是，转化显示后的二进制数为bin-bit中输入的数字宽度，例如
+// dec-number为5，bin-bit为5，则转化后数字为00101
+// 如果bin-bit小于转化后的二进制本身位数，则使用原本的位数，如dec-number为5，bin-bit为2，依然输出101，但同时在console中报个错
+// Some coding
+
+    </script>
+</body>
+</html>

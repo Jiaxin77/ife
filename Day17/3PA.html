@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		3PA
+	</title>
+</head>
+<body>
+
+		<p>请通过开发者工具看console 遇到3的倍数则PA</p>
+
+</body>
+
+<script type="text/javascript">
+//自启动函数
+window.onload = function(){
+  doSomething();
+};
+
+
+function doSomething(){
+
+	var i;
+	var iStr=new String;
+	for(i=1;i<=100;i++)
+	{
+		if(i%3==0)
+		{
+			console.log("PA");
+		}
+		else
+		{
+			iStr=i.toString();
+			//indexOf返回的是在这个字符串中为3的位置，若没有，则为-1
+			if(iStr.indexOf("3")!=-1)
+			{
+				console.log("PA");
+			}
+			else{
+			console.log(i);
+			}
+		}
+	}
+}
+</script>
+</html>

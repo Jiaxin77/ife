@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		9*9 Table
+	</title>
+</head>
+<style type="text/css">
+
+#proTable{
+	/*border: black solid;*/
+	border-spacing: 0;
+	font-size: 15px; 
+	position: relative;
+	margin: 0 auto;
+	width: 50%;
+	text-align: center;
+}
+
+
+#proTable td{
+	border: 1px solid grey; 
+	padding: 3px;
+}
+.Table{
+	position:relative; 
+	margin-top: 100px;
+
+}
+</style>
+<body>
+	<div class="Table"> 
+		
+		<table id="proTable">
+			<caption>
+				九九乘法表
+			</caption>
+			<script>
+				var n=1;
+				var m=1;
+				var t=1;
+				var str=new String;
+
+
+				for(n=1;n<10;n++)
+				{
+					document.write("<tr>");
+					for(m=1;m<=n;m++)
+					{
+						t=n*m;
+						console.log(n+"*"+m+"="+t);
+						str=n+"*"+m+"="+t;
+						document.write("<td>"+str+"</td>")
+
+					}
+
+					document.write("</tr>");
+				}
+
+			</script>
+		</table>
+	</div>
+
+</body>
+<script type="text/javascript" src="jquery.min.js"></script>
+
+</html>

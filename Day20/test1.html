@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Day20 Test1
+	</title>
+</head>
+<body>
+
+	<input id="name" type="text">    
+	<button id="submit-btn">Submit</button>
+</body>
+
+<script type="text/javascript">
+	document.getElementById('submit-btn').onclick=function(){
+		var value=document.getElementById("name").value;
+		console.log(value);
+	}
+	document.onkeydown=function(){
+		switch(event.keyCode){
+			case 13:
+					var value=document.getElementById("name").value;
+					console.log(value);
+					return 1;
+			case 27:
+					var name=document.getElementById("name");
+					console.log("esc");
+					name.value="";
+					name.focus();	
+					return 1;
+		}
+	}
+
+</script>
+</html>

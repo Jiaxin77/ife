@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Eric's Smile
+	</title>
+	<style type="text/css">
+		#Eric{
+			width: 480px;
+			height: 480px;
+			background: url("eric.jpg") 0 0;
+			margin: 0 auto;
+		}
+
+	</style>
+</head>
+
+<script type="text/javascript">
+
+	//为什么不对？？？？？？？？？？？？？？为什么不动？？？？？？？？？？？？？？？？？？？
+	window.onload=function(){
+
+		var eric=document.getElementById("Eric");
+		var Y=0;
+
+		function show()
+		{
+			Y=Y+480;
+			//console.log("1");
+			eric.style.backgroudPosition ="0"+ Y +"px";
+			
+			if(Y>=8160)
+			{
+				Y=480;
+			}
+			console.log(eric.style.backgroudPositionY);
+		}
+
+		setInterval(show,100);
+	}
+
+</script>
+<body>
+	<div id="Eric">
+		
+	</div>
+
+</body>
+
+
+
+</html>

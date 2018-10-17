@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		setTest
+	</title>
+</head>
+<body>
+
+	<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+	<button id="fade-btn" onclick="setInter()">淡出</button>
+</body>
+
+<script type="text/javascript">
+		var btn=document.getElementById('fade-btn');
+		var a=1.0;
+		var b=0.0;
+		var time1;
+		var time2;
+		var flag1;
+		var flag2;
+
+	function setInter()
+	{
+		//var btn=document.getElementById('fade-btn');
+
+
+	function outFunc()
+		{
+			
+			a=a-0.1;
+			document.getElementById('fade-obj').style.opacity=a;
+			btn.innerHTML="淡入";
+			if(a<=0)
+			{
+				clearInterval(flag1);
+				console.log("删除成功");
+				btn.disabled=false;
+			}
+
+		}
+
+	function inFunc()
+		{	
+			//btn.disabled="true";
+			b=b+0.1;
+			document.getElementById('fade-obj').style.opacity=b;
+			btn.innerHTML="淡出";
+			if(b>=1)
+			{
+				clearInterval(flag2);
+				console.log("删除成功");
+				btn.disabled=false;
+			}
+
+		}
+		
+		if (btn.innerHTML=="淡出") 
+		{
+			btn.disabled="true";
+			flag1=setInterval(outFunc,100);
+		}
+		else if(btn.innerHTML=="淡入")
+		{
+			btn.disabled="true";
+			flag2=setInterval(inFunc,100);
+		}
+
+	}
+
+	function setFuc()
+	{
+
+
+
+
+
+		if(btn.innerHTML=="淡出")
+		{
+			btn.disabled="true";
+			a=a-0.1;
+			//console.log("1");
+			document.getElementById('fade-obj').style.opacity=a;
+			time1=setTimeout("setFuc()",100);
+			if(a<=0)
+			{
+				clearTimeout(time1);
+				btn.disabled=false;
+				btn.innerHTML="淡入";
+			}
+		}
+		else if(btn.innerHTML == "淡入")
+		{
+			btn.disabled="true";
+			b=b+0.1;
+		//	console.log("2");
+			document.getElementById('fade-obj').style.opacity=b;
+			time2=setTimeout("setFuc()",100);
+			if(b>=1)
+			{
+				clearTimeout(time2);
+				btn.disabled=false;
+				btn.innerHTML="淡出";
+			}
+		}
+
+		
+
+	}
+
+
+
+
+/*
+	function outFunc()
+	{
+		var btn=document.getElementById('fade-btn');
+		btn.disabled=true;
+		console.log("1");
+		document.getElementById('fade-obj').style.opacity=0;
+	}
+
+	function inFunc()
+	{	var btn=document.getElementById('fade-btn');
+		console.log("2");
+		btn.disabled=false;
+		btn.value="淡入";
+		document.getElementById('fade-obj').style.opacity=1;
+		btn.value="淡出";
+	}
+	*/
+/*	function myFunc()
+	{
+	//按钮不可点击
+		document.getElementById('fade-btn').disabled="disabled";
+	//	
+
+	} */
+</script>
+</html>

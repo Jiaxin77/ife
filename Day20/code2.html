@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display: none;
+
+        }
+    </style>
+</head>
+<body>            
+    <label>
+        <input id="school" name="status" type="radio" onchange="showSelect()">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio" onchange="showSelect()">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+</body>
+
+<script type="text/javascript">
+    window.onload=function () {
+        showSelect();
+    }
+
+    function showSelect(){
+
+        var choose=document.getElementsByName('status');
+       
+        var chooseValue="";
+        for(var i=0;i<choose.length;i++)
+        {
+            if(choose[i].checked){
+                chooseValue=choose[i].id;
+                break;
+            }
+        } 
+        console.log(chooseValue);
+        switch(chooseValue){
+            case "school":
+                var select=document.getElementById('school-select');
+                select.style.display="block";
+                var select=document.getElementById("company-select");
+                select.style.display="none";
+                return 1;
+            case "company":
+                var select=document.getElementById("company-select");
+                select.style.display="block";
+                var select=document.getElementById('school-select');
+                select.style.display="none";
+                return 1;
+
+        }
+    }
+    
+
+</script>
+</html>

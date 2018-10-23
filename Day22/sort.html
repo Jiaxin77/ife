@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Sort
+	</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+
+
+	function sort1()
+	{
+		function sortNumber1(a,b)
+		{
+			return b-a;
+		}
+		function sortNumber2(a,b)
+		{
+			return a-b;
+		}
+
+		var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+		console.log("从大到小");
+		//console.log(arr.sort(sortNumber1));
+		str1=arr.sort(sortNumber1).join(",");
+		console.log(str1);
+		console.log("从小到大");
+		//console.log(arr.sort(sortNumber2));
+		str2=arr.sort(sortNumber2).join(",");
+		console.log(str2);
+	}
+
+	function sort2()
+	{
+		var arr = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+		function sortName1(a,b)
+		{
+			var nameA=a.toUpperCase();
+			var nameB=b.toUpperCase();
+			if (nameA < nameB) 
+			{
+    			return -1;
+  			}
+  			if (nameA > nameB) 
+  			{
+    			return 1;
+  			}
+		}
+
+		function sortName2(a,b)
+		{
+			var nameA=a.toUpperCase();
+			var nameB=b.toUpperCase();
+			if (nameA < nameB) 
+			{
+    			return 1;
+  			}
+  			if (nameA > nameB) 
+  			{
+    			return -1;
+  			}
+		}
+
+		console.log("从a-z");
+		console.log(arr.sort(sortName1));
+		console.log("从z-a");
+		console.log(arr.sort(sortName2));
+	}
+
+ 	function sort3()
+ 	{
+ 		var arr = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+ 		function sortSecond(a,b)
+ 		{
+ 			return b[1]-a[1];
+ 		}
+ 		console.log("第二个数");
+ 		console.log(arr.sort(sortSecond));
+ 	}
+
+ 	function sort4()
+ 	{
+ 		var arr = [
+    {
+        id: 1,
+        name: 'candy',
+        value: 40
+    }, {
+        id: 2,
+        name: 'Simon',
+        value: 50
+    }, {
+        id: 3,
+        name: 'Tony',
+        value: 45
+    }, {
+        id: 4,
+        name: 'Annie',
+        value: 60
+    }
+];
+
+	function sortValue(a,b)
+	{
+		return a.value-b.value;
+	}
+	console.log("从小到大");
+	console.log(arr.sort(sortValue));
+ 	}
+
+ 	window.onload=function()
+ 	{
+ 		sort1();
+ 		sort2();
+ 		sort3();
+ 		sort4();
+ 	}
+
+
+</script>
+</html>

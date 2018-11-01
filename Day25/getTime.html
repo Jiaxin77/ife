@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Time</title>
+</head>
+<body>
+	<p id="nowTime">时间</p>
+	<p id="nowTime2">时间2</p>
+</body>
+
+<script type="text/javascript">
+	
+	var date=Date();
+
+	function myWeek(Date)
+	{
+		var week=Date.getDay();
+		switch(week)
+		{
+			case 1:
+				return "一";
+			case 2:
+				return "二";
+			case 3:
+				return "三";
+			case 4:
+				return "四";
+			case 5:
+				return "五";
+			case 6:
+				return "六";
+			case 7:
+				return "日";
+
+		}
+	}
+
+
+	function haveTwo(num)
+	{
+		var str=new String(num);
+		//str=num;
+		console.log("str"+str);
+		console.log("length"+str.length);
+		if(str.length==1)
+		{
+			str="0"+str;
+			console.log(str);
+		}
+		else
+		{
+			console.log(str);
+			
+		}
+		return str;
+	}
+	//获取AM PM
+	function getAMPM(hours)
+	{
+		var hour=new Number(hours);
+		//hour=hours;
+		if(hour>=12)
+		{
+			return "PM";
+		} 
+		else
+		{
+			return "AM";
+		}
+	}
+	//12小时制的
+	function changeHours(hours)
+	{
+		var hour=new Number(hours);
+		
+		if(hour>=12)
+		{
+			return hour-12;
+		}
+		else
+		{
+			return hour;
+		}
+	}
+	//获取英文周
+	function weekEnglish(Date)
+	{
+		var week=Date.getDay();
+		switch(week)
+		{
+			case 1:
+				return "Monday";
+			case 2:
+				return "Tuesday";
+			case 3:
+				return "Wednesday";
+			case 4:
+				return "Thursday";
+			case 5:
+				return "Friday";
+			case 6:
+				return "Saturday";
+			case 7:
+				return "Sunday";
+
+		}
+	}
+
+	function form(year,month,day,week,hour,min,second)
+	{
+		var formStr=new String;
+		formStr=year+"年"+month+"月"+day+"日星期"+week+" "+hour+":"+min+":"+second;
+		return formStr;
+	}
+
+	function form2(year,month,day,week,hour,min,second,M)
+	{
+		var formStr=new String;
+		formStr=year+"-"+month+"-"+day+" "+week+" "+hour+":"+min+":"+second+" "+M;
+		return formStr;
+	}
+	function innerDate()
+	{
+		var date=new Date();
+		console.log(date);
+		var year=date.getFullYear();
+		var month=haveTwo(date.getMonth());
+		var day=haveTwo(date.getDay());
+		var week=myWeek(date);
+		var hour=haveTwo(date.getHours());
+		var min=haveTwo(date.getMinutes());
+		var second=haveTwo(date.getSeconds());
+		var innerStr=form(year,month,day,week,hour,min,second);
+		var myP=document.getElementById('nowTime');
+		myP.innerHTML=innerStr;
+		console.log(innerStr);
+
+		var week2=weekEnglish(date);
+		var hour2=changeHours(hour);
+		hour2=haveTwo(hour2);
+		var M=getAMPM(hour);
+		var innerStr2=form2(year,month,day,week2,hour2,min,second,M);
+		var myP2=document.getElementById('nowTime2');
+		myP2.innerHTML=innerStr2;
+		console.log(innerStr2);
+	}
+
+	window.onload=function()
+	{
+		timedCount();
+	}
+
+	function timedCount()
+	{
+		innerDate();
+		t=setTimeout("timedCount()",1000);
+	}
+</script>
+</html>

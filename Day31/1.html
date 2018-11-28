@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style type="text/css">
+	
+	table{
+		/*border-bottom:1px;*/
+		padding: 5px 10px;
+		margin: 5px;
+		font-size: 12px;
+		font-family: Verdana;
+		text-align: center;
+
+	}
+
+	table tr ,table th{
+		border-width: 1px;
+		border-style: solid;
+		border-color: rgb(81,130,187);
+	}
+
+	table td{
+		color:#000;
+	}
+	#mytable{
+		margin: auto;
+		position: relative;
+	}
+
+	
+
+
+</style>
+<body>
+
+<select id="region-select">
+    <option>华东</option>
+    <option>华南</option>
+    <option>华北</option>
+</select>
+
+<select id="goods-select">
+	<option>手机</option>
+	<option>笔记本</option>	
+	<option>智能音箱</option>
+</select>
+
+<div id="mytable">
+	<table id="table-wrapper" border=1px>
+	</table>
+
+<div>
+
+</body>
+
+<script type="text/javascript">
+
+	var selected=document.getElementById('region-select');
+	var selected_goods=document.getElementById('goods-select');
+	selected.onchange = function() {
+	var data=GetSelectedData();
+	GetNewTable(data);
+    
+}
+	selected_goods.onchange = function() {
+	var data=GetSelectedData();
+	GetNewTable(data);
+    
+} 
+
+function GetSelectedData() {
+   // dosomething
+    //返回数据
+
+    var dataArray=new Array();
+    count=0;
+    for (var i=0;i<sourceData.length;i++)
+    {
+    	//console.log(sourceData[i].region);
+    	//console.log(selected.value);
+    	if(sourceData[i].region==selected.value&&sourceData[i].product==selected_goods.value)
+    	{
+    		dataArray[count]=new Array();
+    		dataArray[count][0]=sourceData[i].product;
+    		dataArray[count][1]=sourceData[i].region;
+    		dataArray[count][2]=sourceData[i].sale;
+
+    		count++;
+    	}
+
+
+    }
+
+  //  console.log(count);
+    return dataArray;
+
+
+
+}
+
+function GetNewTable(data) {
+
+
+	document.getElementById("table-wrapper").innerHTML='';
+
+
+	var index=document.getElementById("table-wrapper").rows.length;
+    var insertRow=document.getElementById("table-wrapper").insertRow(index);
+
+	var goods,regions,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12;
+
+    for(var i=0;i<data.length;i++)
+    {
+
+    	goods=insertRow.insertCell(0);//插到此行第0列
+    	regions=insertRow.insertCell(1);
+    	m1=insertRow.insertCell(2);
+    	m2=insertRow.insertCell(3);
+    	m3=insertRow.insertCell(4);
+    	m4=insertRow.insertCell(5);
+    	m5=insertRow.insertCell(6);
+    	m6=insertRow.insertCell(7);
+    	m7=insertRow.insertCell(8);
+    	m8=insertRow.insertCell(9);
+    	m9=insertRow.insertCell(10);
+    	m10=insertRow.insertCell(11);
+    	m11=insertRow.insertCell(12);
+    	m12=insertRow.insertCell(13);
+
+
+
+    	goods.innerHTML=data[i][0];
+    	regions.innerHTML=data[i][1];
+    	
+    	m1.innerHTML=220;
+
+
+
+		m2.innerHTML=data[i][2][1];
+		m3.innerHTML=data[i][2][2];
+		m4.innerHTML=data[i][2][3];
+		m5.innerHTML=data[i][2][4];
+		m6.innerHTML=data[i][2][5];
+		m7.innerHTML=data[i][2][6];
+		m8.innerHTML=data[i][2][7];
+		m9.innerHTML=data[i][2][8];
+		m10.innerHTML=data[i][2][9];
+		m11.innerHTML=data[i][2][10];
+		m12.innerHTML=data[i][2][11];
+
+		index=document.getElementById("table-wrapper").rows.length;
+   		insertRow=document.getElementById("table-wrapper").insertRow(index);
+
+
+    	
+    }
+    
+
+}
+
+
+let sourceData = [{
+    product: "手机",
+    region: "华东",
+    sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+}, {
+    product: "手机",
+    region: "华北",
+    sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+}, {
+    product: "手机",
+    region: "华南",
+    sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+}, {
+    product: "笔记本",
+    region: "华东",
+    sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+}, {
+    product: "笔记本",
+    region: "华北",
+    sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+}, {
+    product: "笔记本",
+    region: "华南",
+    sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+}, {
+    product: "智能音箱",
+    region: "华东",
+    sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+}, {
+    product: "智能音箱",
+    region: "华北",
+    sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+}, {
+    product: "智能音箱",
+    region: "华南",
+    sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+}]
+
+</script>
+
+
+</html>
+

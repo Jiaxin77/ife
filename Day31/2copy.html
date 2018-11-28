@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>
+		2
+	</title>
+</head>
+
+<style type="text/css">
+
+table{
+	/*border-bottom:1px;*/
+	padding: 5px 10px;
+	margin: 5px;
+	font-size: 12px;
+	font-family: Verdana;
+	text-align: center;
+
+}
+
+table tr ,table th{
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(81,130,187);
+}
+
+table td{
+	color:#000;
+}
+#mytable{
+	margin: auto;
+	position: relative;
+}
+
+
+</style>
+<body>
+
+	<div id="region-radio-wrapper"></div>
+	<div id="product-radio-wrapper"></div>
+
+	<div id="mytable">
+		<table id="table-wrapper" border=1px>
+		</table>
+
+		<div>
+
+		</body>
+
+		<script type="text/javascript">
+
+	//放checkbox的容器
+	var regionDiv=document.getElementById('region-radio-wrapper');
+	var productDiv=document.getElementById('product-radio-wrapper');
+
+	var regionData=[
+	{
+		value:1,
+		text:"华东"
+	},
+	{
+		value:2,
+		text:"华南"
+	},
+	{
+		value:3,
+		text:"华北"
+	}
+	];
+
+	var productData=[
+	{
+		value:1,
+		text:"手机"
+	},
+	{
+		value:2,
+		text:"笔记本"
+	},
+	{
+		value:3,
+		text:"智能音箱"
+	}
+	];
+
+	newCheckBox(regionDiv,regionData);
+	newCheckBox(productDiv,productData);
+		//生成一组checkbox
+		function newCheckBox(input,data)
+		{
+
+			input.innerHTML="";
+			var ul=document.createElement("ul");
+
+
+		//生成全选checkbox
+
+		var allchoose=document.createElement("input");
+		allchoose.setAttribute("type","checkbox");
+		allchoose.setAttribute("checkboxType","all");
+		allchoose.setAttribute("name","全选"+input.id);
+		allchoose.setAttribute("value","全选");
+		var AllLi=document.createElement("li");
+		AllLi.appendChild(allchoose);
+		AllLi.appendChild(document.createTextNode("全选"));
+
+		//生成各个子选项
+		for(var i=0;i<data.length;i++)
+		{
+			var value=data[i].value;
+			var name=data[i].text;
+			var checkBox=document.createElement("input");
+			checkBox.setAttribute("type","checkbox");
+			checkBox.setAttribute("id",value);
+			checkBox.setAttribute("value",name);
+			checkBox.setAttribute("name","singleBox"+input.id);
+			checkBox.setAttribute("checkboxType","single");
+			var li=document.createElement("li");
+			li.appendChild(checkBox);
+			li.appendChild(document.createTextNode(name));
+			ul.appendChild(li);
+		}
+		//容器集合
+		input.appendChild(AllLi);
+		input.appendChild(ul);
+
+		input.addEventListener('click',function(e){
+
+			var el=e.target;
+			console.log(el.value);
+			if(el.type=="checkbox")
+			{
+
+				var myAttr=el.getAttribute("checkboxType");
+				console.log(myAttr);
+				if(myAttr=="all")
+				{
+					if(document.getElementsByName('全选'+input.id)[0].checked==true)
+					{	
+						var boxes=document.getElementsByName('singleBox'+input.id);
+						for(var j=0;j<boxes.length;j++)
+						{
+							boxes[j].checked=true;
+						}
+					}
+
+				}
+
+				else if(myAttr=="single")
+				{
+					var boxes=document.getElementsByName('singleBox'+input.id);
+					var id=el.id;
+					var count=0;
+					for(var h=0;h<boxes.length;h++)
+					{
+						if(boxes[h].checked==true)
+						{
+							count++;
+						}
+					}
+
+					if(count==0)
+					{
+						//不允许一个都不选
+						boxes[id-1].checked=true;
+					}
+					else if (count==boxes.length)
+					{
+						//全选
+						document.getElementsByName('全选'+input.id)[0].checked=true;	
+					}
+					else if(count!=boxes.length)
+					{
+						document.getElementsByName('全选'+input.id)[0].checked=false;	
+					}
+				}
+			}
+
+
+
+
+			var tableData=getData(sourceData);
+			GetNewTable(tableData);	
+
+		}
+
+
+
+		)
+
+
+	}
+
+
+	function getData(allData)
+	{
+
+   // dosomething
+    //返回数据
+
+    var dataArray=new Array();
+    count=0;
+    //获取选中的region
+    var regions=new Array();
+    var idRegion=document.getElementsByName("singleBox"+regionDiv.id);
+    console.log(idRegion);
+
+    for(var r=0;r<idRegion.length;r++)
+    {
+    	if(idRegion[r].checked)
+    	{
+    		regions.push(idRegion[r].value);
+    	}
+    }
+
+    console.log(regions);
+
+    //获取选中的product
+    var products=new Array();
+    var idProduct=document.getElementsByName("singleBox"+productDiv.id);
+
+    for(var p=0;p<idProduct.length;p++)
+    {
+    	if(idProduct[p].checked)
+    	{
+    		products.push(idProduct[p].value);
+    	}
+    }
+    console.log(products);
+
+
+
+    //获取数据
+
+    for(var a=0;a<allData.length;a++)
+    {
+
+    	var thisRegion=allData[a].region;
+    	var thisProduct=allData[a].product;
+
+    	if(products.length<=regions.length)
+    	{	
+
+
+    		for (var i=0;i<products.length;i++)
+    		{
+   		 		//区域符合
+   		 		if(thisProduct==products[i])
+   		 		{
+   		 			for(var j=0;j<regions.length;j++)
+   		 			{
+   		 				if(thisRegion==regions[j])
+   		 				{
+
+    						//dataArray.push(allData[a]);
+
+    						
+    						dataArray[count]=new Array();
+								//哪个少哪个放前面
+								
+								dataArray[count][0]=allData[a].product;
+								dataArray[count][1]=allData[a].region;
+
+								dataArray[count][2]=allData[a].sale;
+
+								count++;
+
+							}
+						}
+					}
+				}
+			}
+
+			else if(products.length>regions.length)
+			{
+
+
+				for (var i=0;i<regions.length;i++)
+				{
+   		 		//区域符合
+   		 		if(thisRegion==regions[i])
+   		 		{
+   		 			for(var j=0;j<products.length;j++)
+   		 			{
+   		 				if(thisProduct==products[j])
+   		 				{
+	//dataArray.push(allData[a]);
+
+
+	dataArray[count]=new Array();
+								//哪个少哪个放前面
+								
+
+								dataArray[count][1]=allData[a].product;
+								dataArray[count][0]=allData[a].region;
+
+								dataArray[count][2]=allData[a].sale;
+
+								count++;
+
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+	//	console.log(dataArray.length);
+  //  console.log(count);
+  return dataArray;
+
+}
+
+
+function GetNewTable(data)
+ {
+
+
+	document.getElementById("table-wrapper").innerHTML='';
+
+
+	var index=document.getElementById("table-wrapper").rows.length;
+	var insertRow=document.getElementById("table-wrapper").insertRow(index);
+
+	var col1,col2,m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12;
+
+	
+	//var rowFlag=[]
+	var reloadTable=new Array();
+	var haveRow=new Array();
+
+	for(var i=0;i<data.length;i++)
+	{
+		var flag=0;
+		var count=0;
+		for(var inR=0;inR<haveRow.length;inR++)
+		{
+
+			if(i==haveRow[inR])
+			{
+				flag=1;
+			}
+		}
+		if(flag==0)
+		{
+			var thiscell=data[i][0];
+			for(var j=i+1;j<data.length;j++)
+			{
+				if(thiscell==data[j][0])
+				{
+				haveRow.push(j);
+    			//统计有几行一样的
+    			//把一样的放在新表中
+    			reloadTable[count]=new Array();
+    			reloadTable[count]=data[j];
+    			count++;
+    			}
+    		}
+
+    	if(count!=0)
+    	{
+    		index=document.getElementById("table-wrapper").rows.length;
+    		insertRow=document.getElementById("table-wrapper").insertRow(index);
+    		//插入当前行
+    		col1=insertRow.insertCell(0);//插到此行第0列
+    		col2=insertRow.insertCell(1);
+    		m1=insertRow.insertCell(2);
+    		m2=insertRow.insertCell(3);
+    		m3=insertRow.insertCell(4);
+    		m4=insertRow.insertCell(5);
+    		m5=insertRow.insertCell(6);
+    		m6=insertRow.insertCell(7);
+    		m7=insertRow.insertCell(8);
+    		m8=insertRow.insertCell(9);
+    		m9=insertRow.insertCell(10);
+    		m10=insertRow.insertCell(11);
+    		m11=insertRow.insertCell(12);
+    		m12=insertRow.insertCell(13);
+
+    		//col1.rowspan=count;
+    		col1.setAttribute("rowspan",count+1);
+    		col1.innerHTML=data[i][0];
+    		col2.innerHTML=data[i][1];
+
+    		m1.innerHTML=data[i][2][0];
+    		m2.innerHTML=data[i][2][1];
+    		m3.innerHTML=data[i][2][2];
+    		m4.innerHTML=data[i][2][3];
+    		m5.innerHTML=data[i][2][4];
+    		m6.innerHTML=data[i][2][5];
+    		m7.innerHTML=data[i][2][6];
+    		m8.innerHTML=data[i][2][7];
+    		m9.innerHTML=data[i][2][8];
+    		m10.innerHTML=data[i][2][9];
+    		m11.innerHTML=data[i][2][10];
+    		m12.innerHTML=data[i][2][11];
+
+
+    		for(var reload=0;reload<reloadTable.length;reload++)
+    		{
+
+    		index=document.getElementById("table-wrapper").rows.length;
+			insertRow=document.getElementById("table-wrapper").insertRow(index);
+			console.log(index);
+			//col1=insertRow.insertCell(0);//插到此行第0列
+			col2=insertRow.insertCell(0);
+			m1=insertRow.insertCell(1);
+			m2=insertRow.insertCell(2);
+			m3=insertRow.insertCell(3);
+			m4=insertRow.insertCell(4);
+			m5=insertRow.insertCell(5);
+			m6=insertRow.insertCell(6);
+			m7=insertRow.insertCell(7);
+			m8=insertRow.insertCell(8);
+			m9=insertRow.insertCell(9);
+			m10=insertRow.insertCell(10);
+			m11=insertRow.insertCell(11);
+			m12=insertRow.insertCell(12);
+
+    		//col1.rowspan=count;
+
+    		//col1.innerHTML=data[i][0];
+    		col2.innerHTML=reloadTable[reload][1];
+
+    		m1.innerHTML=reloadTable[reload][2][0];
+    		m2.innerHTML=reloadTable[reload][2][1];
+    		m3.innerHTML=reloadTable[reload][2][2];
+    		m4.innerHTML=reloadTable[reload][2][3];
+    		m5.innerHTML=reloadTable[reload][2][4];
+    		m6.innerHTML=reloadTable[reload][2][5];
+    		m7.innerHTML=reloadTable[reload][2][6];
+    		m8.innerHTML=reloadTable[reload][2][7];
+    		m9.innerHTML=reloadTable[reload][2][8];
+    		m10.innerHTML=reloadTable[reload][2][9];
+    		m11.innerHTML=reloadTable[reload][2][10];
+    		m12.innerHTML=reloadTable[reload][2][11];
+    		}
+    		//break;
+   		}
+
+   		else
+   		{
+   			console.log("else!");
+
+   		index=document.getElementById("table-wrapper").rows.length;
+    	insertRow=document.getElementById("table-wrapper").insertRow(index);
+
+
+    	col1=insertRow.insertCell(0);//插到此行第0列
+    	col2=insertRow.insertCell(1);
+    	m1=insertRow.insertCell(2);
+    	m2=insertRow.insertCell(3);
+    	m3=insertRow.insertCell(4);
+    	m4=insertRow.insertCell(5);
+    	m5=insertRow.insertCell(6);
+    	m6=insertRow.insertCell(7);
+    	m7=insertRow.insertCell(8);
+    	m8=insertRow.insertCell(9);
+    	m9=insertRow.insertCell(10);
+    	m10=insertRow.insertCell(11);
+    	m11=insertRow.insertCell(12);
+    	m12=insertRow.insertCell(13);
+
+
+
+    	col1.innerHTML=data[i][0];
+    	col2.innerHTML=data[i][1];
+    	
+    	m1.innerHTML=data[i][2][0];
+    	m2.innerHTML=data[i][2][1];
+    	m3.innerHTML=data[i][2][2];
+    	m4.innerHTML=data[i][2][3];
+    	m5.innerHTML=data[i][2][4];
+    	m6.innerHTML=data[i][2][5];
+    	m7.innerHTML=data[i][2][6];
+    	m8.innerHTML=data[i][2][7];
+    	m9.innerHTML=data[i][2][8];
+    	m10.innerHTML=data[i][2][9];
+    	m11.innerHTML=data[i][2][10];
+    	m12.innerHTML=data[i][2][11];
+
+    	
+		}
+
+   		 }
+	}
+
+
+}
+
+
+/*
+function reloadTable(table)
+{
+	var tb=document.getElementById(table.id);
+	var rows=tb.rows;
+	
+	var thisCount=0;
+	//获取这一行第一个
+	var nowcell=rows[thisCount].cells[0].innerHTML;
+	for(var i=thisCount;i<rows.length;i++)
+	{
+		var nextCell=rows[i].cells[0].innerHTML;
+		if(var)
+	}
+}
+*/
+
+
+let sourceData = [{
+	product: "手机",
+	region: "华东",
+	sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+}, {
+	product: "手机",
+	region: "华北",
+	sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+}, {
+	product: "手机",
+	region: "华南",
+	sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+}, {
+	product: "笔记本",
+	region: "华东",
+	sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+}, {
+	product: "笔记本",
+	region: "华北",
+	sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+}, {
+	product: "笔记本",
+	region: "华南",
+	sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+}, {
+	product: "智能音箱",
+	region: "华东",
+	sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+}, {
+	product: "智能音箱",
+	region: "华北",
+	sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+}, {
+	product: "智能音箱",
+	region: "华南",
+	sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+}]
+
+
+
+
+</script>
+</html>
